@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+}
+.container{
+    background-color: rgb(184, 108, 255);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 40px;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+}
+.choices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.choice{
+    margin: 6px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(182, 69, 247);
+    color: white;
+}
+.choice:hover{
+    background-color: rgb(215, 164, 255);
+    color: blueviolet;
+    border: 1px solid blueviolet;
+    cursor: pointer;
+}
