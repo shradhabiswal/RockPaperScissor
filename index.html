@@ -14,61 +14,69 @@
         <div class="choices">
             <button onclick="
 
-                generateComputerChoice();
-                let resultMsg;
-                if (computerChoice === 'rock') {
-                    resultMsg = `It's a tie`;
-                } else if (computerChoice === 'paper') {
-                    resultMsg = 'Computer won';
-                } else {
-                    resultMsg = 'You won';
-                }
+                let computerChoice = generateComputerChoice();
+                let resultMsg = result('rock', computerChoice);
 
                 alert(`You have chosen rock. Computer's choice is ${computerChoice}. Result = ${resultMsg}`);
             " class="choice">Rock</button>
 
             <button onclick="
-                generateComputerChoice();
-
-                if (computerChoice === 'rock') {
-                    resultMsg = 'You won';
-                } else if (computerChoice === 'paper') {
-                    resultMsg = `It's a tie`;
-                } else {
-                    resultMsg = 'Computer won';
-                }
-
+                computerChoice = generateComputerChoice();
+                resultMsg = result('paper', computerChoice);
+                
                 alert(`You have chosen paper. Computer's choice is ${computerChoice}. Result = ${resultMsg}`);
             " class="choice">Paper</button>
 
             <button onclick="
-                generateComputerChoice();
+                computerChoice = generateComputerChoice();
+                resultMsg = result('scissor', computerChoice);
 
-                if (computerChoice === 'rock') {
-                    resultMsg = 'Computer won';
-                } else if (computerChoice === 'paper') {
-                    resultMsg = 'You won';
-                } else {
-                    resultMsg = `It's a tie`;
-                }
+                
 
                 alert(`You have chosen scissor. Computer's choice is ${computerChoice}. Result = ${resultMsg}`);
             " class="choice">Scissor</button>
         </div>
     </div>
     <script>
-        let computerChoice;
+        let randomNum = Math.random() * 3;
         function generateComputerChoice(){
-            let randomNum = Math.random() * 3;
             if (randomNum <= 1) {
-                computerChoice = 'rock';
+                return 'rock';
             } else if (randomNum <= 2) {
-                computerChoice = 'paper';
+                return 'paper';
             } else {
-                computerChoice = 'scissor';
+                return 'scissor';
+            } 
+        }
+
+        function result(userChoice, computerChoice){
+            if (userChoice === 'rock'){
+                if (computerChoice === 'rock') {
+                    return `It's a tie`;
+                } else if (computerChoice === 'paper') {
+                    return 'Computer won';
+                } else {
+                    return 'You won';
+                }
             }
-
-
+            else if(userChoice === 'paper'){
+                if (computerChoice === 'rock') {
+                    return 'You won';
+                } else if (computerChoice === 'paper') {
+                    return `It's a tie`;
+                } else {
+                    return 'Computer won';
+                }
+            }
+            else{
+                if (computerChoice === 'rock') {
+                    return 'Computer won';
+                } else if (computerChoice === 'paper') {
+                    return 'You won';
+                } else {
+                    return `It's a tie`;
+                }
+            }
         }
     </script>
 </body>
