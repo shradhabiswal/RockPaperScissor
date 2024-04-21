@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RockPaperScissor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="name">
@@ -17,67 +19,38 @@
                 let computerChoice = generateComputerChoice();
                 let resultMsg = result('rock', computerChoice);
 
-                alert(`You have chosen rock. Computer's choice is ${computerChoice}. Result = ${resultMsg}`);
+                showResult('rock', computerChoice, resultMsg);
+                
             " class="choice">Rock</button>
 
             <button onclick="
                 computerChoice = generateComputerChoice();
                 resultMsg = result('paper', computerChoice);
                 
-                alert(`You have chosen paper. Computer's choice is ${computerChoice}. Result = ${resultMsg}`);
+                showResult('paper', computerChoice, resultMsg);
             " class="choice">Paper</button>
 
             <button onclick="
                 computerChoice = generateComputerChoice();
                 resultMsg = result('scissor', computerChoice);
 
-                
-
-                alert(`You have chosen scissor. Computer's choice is ${computerChoice}. Result = ${resultMsg}`);
+                showResult('scissor', computerChoice, resultMsg);
             " class="choice">Scissor</button>
-        </div>
-    </div>
-    <script>
-        let randomNum = Math.random() * 3;
-        function generateComputerChoice(){
-            if (randomNum <= 1) {
-                return 'rock';
-            } else if (randomNum <= 2) {
-                return 'paper';
-            } else {
-                return 'scissor';
-            } 
-        }
 
-        function result(userChoice, computerChoice){
-            if (userChoice === 'rock'){
-                if (computerChoice === 'rock') {
-                    return `It's a tie`;
-                } else if (computerChoice === 'paper') {
-                    return 'Computer won';
-                } else {
-                    return 'You won';
-                }
-            }
-            else if(userChoice === 'paper'){
-                if (computerChoice === 'rock') {
-                    return 'You won';
-                } else if (computerChoice === 'paper') {
-                    return `It's a tie`;
-                } else {
-                    return 'Computer won';
-                }
-            }
-            else{
-                if (computerChoice === 'rock') {
-                    return 'Computer won';
-                } else if (computerChoice === 'paper') {
-                    return 'You won';
-                } else {
-                    return `It's a tie`;
-                }
-            }
-        }
-    </script>
+            
+        </div>
+        <div>
+            <div class="textonscreen" id="user-choice"></div>
+            <div class="textonscreen" id="computer-choice"></div>
+            <div class="textonscreen" id="result"></div>
+            <div class="textonscreen" id="score"></div>
+        </div>
+        <button onclick=" 
+            localStorage.clear();
+            resetScore();
+            " class="choice" id="reset">Reset</button>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
